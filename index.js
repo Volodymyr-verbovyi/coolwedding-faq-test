@@ -18,7 +18,7 @@ http.createServer().listen(process.env.PORT || 4000).on('request', function (req
     res.end('')
 });
 setInterval(function () {
-    https.get('https://git.heroku.com/test-cool1-bot.git')
+    https.get('https://test-cool1-bot.herokuapp.com')
 }, 300000);
 
 try {
