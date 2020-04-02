@@ -168,7 +168,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '8000 грн',
+                                            text: '10000 грн',
                                             callback_data: '1',
                                         }
                                     ],
@@ -193,7 +193,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '10000 грн',
+                                            text: '13000 грн',
                                             callback_data: '1',
                                         }
                                     ],
@@ -218,7 +218,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '12000 грн',
+                                            text: '15000 грн',
                                             callback_data: '1',
                                         }
                                     ],
