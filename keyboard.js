@@ -2,13 +2,14 @@ const kb = require('./keyboard-buttons');
 
 module.exports = {
     home: [
-        [kb.home.price,kb.home.pak],
+        [kb.home.price],
         [kb.home.locations,kb.home.weddingSite],
         [kb.contact]
     ],
     home2: [
         [kb.home2.deadlines,kb.home2.pay],
         [kb.home2.reservation,kb.home2.contract],
+        [kb.home2.pak],
         [kb.back]
     ],
     home3: [

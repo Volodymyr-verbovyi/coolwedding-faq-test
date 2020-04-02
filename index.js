@@ -27,14 +27,22 @@ setInterval(function () {
 
 
 try {
+    bot.onText(/\/start/, async msg => {
+
+        const text = `Привет🖐, выберайте вариант ниже 👇, ${msg.from.first_name}`;
+        await bot.sendMessage(helper.getChatId(msg), text, {
+            reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+        })
+    });
+
     bot.on('message', async msg => {
         const chatId = helper.getChatId(msg);
 
         switch (msg.text) {
             case kb.home.price:
-                await bot.sendMessage(chatId, `Стоимость от 10000 грн до 15000грн в зависимости от выбраного пакета`,
+                await bot.sendMessage(chatId, `Стоимость от 10000 грн до 15000грн в зависимости от выбраного пакета👇`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home3}
                     });
                 break;
             case kb.home.locations:
@@ -43,8 +51,8 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home4}
                     });
                 break;
-            case kb.home.pak:
-                await bot.sendMessage(chatId, `В каждый пакет входит - сьемка 2-мя операторами основных событый, монтаж клипа, предварительная встреча, онлайн пригласительный`,
+            case kb.home2.pak:
+                await bot.sendMessage(chatId, `В каждый пакет входит - сьемка 2-мя операторами основных событый, монтаж клипа, предварительная встреча, онлайн пригласительный. В пакеты на 10 и 12 часов + добавляется монтаж свадебного фильма.`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home3}
                     });
@@ -146,6 +154,80 @@ try {
                         }, keyboard: keyboard.home5
                     });
                 break;
+            case kb.home3.hours8:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 8 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            Исходный материал
+            Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '8000 грн',
+                                            callback_data: '1',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                    });
+                break;
+            case kb.home3.hours10:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал   
+            Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '10000 грн',
+                                            callback_data: '1',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                    });
+                break;
+            case kb.home3.hours12:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 12 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал   
+            Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '12000 грн',
+                                            callback_data: '1',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                    });
+                break;
             case kb.back:
                 await bot.sendMessage(chatId, `Выберайте вариант ниже 👇`,
                     {
@@ -164,13 +246,6 @@ try {
         }
     });
 
-    bot.onText(/\/start/, async msg => {
-
-        const text = `Привет🖐, выберайте вариант ниже 👇, ${msg.from.first_name}`;
-        await bot.sendMessage(helper.getChatId(msg), text, {
-            reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
-        })
-    });
 } catch (err) {
     console.warn(err.message);
 }
@@ -179,7 +254,12 @@ try {
 
 
 
-
+/*case kb.home3.hours10:
+                await bot.sendMessage(chatId, `Съёмка 10 часов:\n 2 оператора\n Свадебный клип\n Свадебный сайт\n Онлайн галерея\n Свадебный фильм\n Исходный материал\n Предварительная встреча\n`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home3}
+                    });
+                break;*/
 
 
 
