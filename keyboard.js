@@ -15,7 +15,7 @@ module.exports = {
     ],
     home3: [
         [kb.home3.hours8,kb.home3.hours10],
-        [kb.home3.hours12,kb.home3.hours],
+        [kb.home3.hours12,kb.contact],
         [kb.back]
     ],
     home4: [
