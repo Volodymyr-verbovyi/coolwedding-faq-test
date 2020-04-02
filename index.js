@@ -169,7 +169,7 @@ try {
                                     [
                                         {
                                             text: '10000 грн ₴',
-                                            callback_data: '1',
+                                            url: 'https://t.me/verbovyi_volodymyr',
                                         }
                                     ],
                                 ],
@@ -194,7 +194,7 @@ try {
                                     [
                                         {
                                             text: '13000 грн ₴',
-                                            callback_data: '1',
+                                            url: 'https://t.me/verbovyi_volodymyr',
                                         }
                                     ],
                                 ],
