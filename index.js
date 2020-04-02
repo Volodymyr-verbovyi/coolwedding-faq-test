@@ -29,7 +29,7 @@ setInterval(function () {
 try {
     bot.onText(/\/start/, async msg => {
 
-        const text = `Привет👋 🏽, выбирайте вариант ниже 👇🏽, ${msg.from.first_name}`;
+        const text = `Привет👋🏽, выбирайте вариант ниже 👇🏽, ${msg.from.first_name}`;
         await bot.sendMessage(helper.getChatId(msg), text, {
             reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
         })
@@ -41,7 +41,7 @@ try {
         switch (msg.text) {
             case kb.home.price:
                 // language=HTML
-                await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн</strong> до <b>15000 грн</b> в зависимости от выбраного пакета👇🏽`,
+                await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн ₴</strong> до <b>15000 грн ₴</b> в зависимости от выбраного пакета👇🏽`,
                     {
                         reply_markup: {
                             resize_keyboard: true,
@@ -62,13 +62,13 @@ try {
                     });
                 break;
             case kb.home2.reservation:
-                await bot.sendMessage(chatId, `Предоплата нужна для бронирования даты, и составляет 2000 грн`,
+                await bot.sendMessage(chatId, `Предоплата нужна для бронирования даты, и составляет 2000 грн ₴`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
             case kb.home2.pay:
-                await bot.sendMessage(chatId, `Так как для бронирования даты, берем задаток 2000 грн, оставшаяся сума в день свадьбы`,
+                await bot.sendMessage(chatId, `Так как для бронирования даты, берем задаток 2000 грн ₴, оставшаяся сума в день свадьбы`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
@@ -168,7 +168,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '10000 грн',
+                                            text: '10000 грн ₴',
                                             callback_data: '1',
                                         }
                                     ],
@@ -193,7 +193,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '13000 грн',
+                                            text: '13000 грн ₴',
                                             callback_data: '1',
                                         }
                                     ],
@@ -218,7 +218,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '15000 грн',
+                                            text: '15000 грн ₴',
                                             callback_data: '1',
                                         }
                                     ],
@@ -233,7 +233,7 @@ try {
                     });
                 break;
             case kb.contact:
-                await bot.sendMessage(chatId, `С удовольствием отвечу по телефону +380633592121, на оставшиеся вопросы. Звоните 💛`,
+                await bot.sendMessage(chatId, `С удовольствием отвечу по телефону +380633592121, на оставшиеся вопросы. Звоните, или пишите.💛`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
                     });
