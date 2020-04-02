@@ -29,7 +29,7 @@ setInterval(function () {
 try {
     bot.onText(/\/start/, async msg => {
 
-        const text = `Привет🖐, выберайте вариант ниже 👇, ${msg.from.first_name}`;
+        const text = `Привет👋 🏽, выбирайте вариант ниже 👇🏽, ${msg.from.first_name}`;
         await bot.sendMessage(helper.getChatId(msg), text, {
             reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
         })
@@ -41,7 +41,7 @@ try {
         switch (msg.text) {
             case kb.home.price:
                 // language=HTML
-                await bot.sendMessage(chatId, `Стоимость от <strong>10000грн</strong> до <b>15000грн</b> в зависимости от выбраного пакета👇`,
+                await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн</strong> до <b>15000 грн</b> в зависимости от выбраного пакета👇🏽`,
                     {
                         reply_markup: {
                             resize_keyboard: true,
@@ -50,7 +50,7 @@ try {
                     });
                 break;
             case kb.home.detail:
-                await bot.sendMessage(chatId, `Съемка проходит в разной локацие, по вашему выбору, так же предлагаем и своим локаци`,
+                await bot.sendMessage(chatId, `Съемка проходит на разных локациях, по вашему выбору. Возможно у вас есть ценные для вас места, я думаю там также возможно провести съёмку.`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
@@ -74,7 +74,7 @@ try {
                     });
                 break;
             case kb.home2.deadlines:
-                await bot.sendMessage(chatId, `Процесс сложный и творческий 🙏, по времени стараемся от 2х недель, но бывает и 3 месяца☺️. Поверьте, результат того стоит  🔥`,
+                await bot.sendMessage(chatId, `Процесс сложный и творческий 🙏, по времени стараемся от 2х недель, но бывает и 3 месяца☺️. Поверьте, результат того стоит 🔥`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
@@ -85,22 +85,22 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
-            case kb.home4.twoCamera:
+            case kb.home2.twoCamera:
                 await bot.sendMessage(chatId, `Съемка происходит двумя операторами, таким образом позволяет снять разные планы одного события.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home4}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
-            case kb.home4.equipment:
-                await bot.sendMessage(chatId, `Снимаем на фотоапараты. Также по возможности использкем систему стабилизации. Звук на банкете и выездной церемонии записываем на звуковой рекордер.`,
+            case kb.home2.equipment:
+                await bot.sendMessage(chatId, `Снимаем на фотоапараты. Также по возможности используем систему стабилизации. Звук на банкете и выездной церемонии записываем на звуковой рекордер.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home4}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
-            case kb.home4.material:
+            case kb.home2.material:
                 await bot.sendMessage(chatId, `Исходный материал по желанию можем отдать, как онлайн ссылку с нашего файлообменника, так и на вашем жестком диске. В среднем обьем зависит от насыщенности событий и составляет 200-300 гб.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home4}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
             case kb.home5.var1:
@@ -227,20 +227,20 @@ try {
                     });
                 break;
             case kb.back:
-                await bot.sendMessage(chatId, `Выберайте вариант ниже 👇`,
+                await bot.sendMessage(chatId, `Выбирайте вариант ниже 👇🏽`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
                     });
                 break;
             case kb.contact:
-                await bot.sendMessage(chatId, `С удовольствием ответчу по телефону +380633592121, на оставшиеся вопросы. Звоните 💛`,
+                await bot.sendMessage(chatId, `С удовольствием отвечу по телефону +380633592121, на оставшиеся вопросы. Звоните 💛`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
                     });
                 break;
 
             default:
-                await bot.sendMessage(chatId, `${msg.from.first_name}, оу, полегше, давай спробуемо ще раз выберайте вариант ниже 👇`)
+                await bot.sendMessage(chatId, `${msg.from.first_name}, оу, полегше, давай спробуемо ще раз выбирайте вариант ниже 👇🏽`)
         }
     });
 
