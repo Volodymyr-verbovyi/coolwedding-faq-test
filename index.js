@@ -219,7 +219,7 @@ try {
                                     [
                                         {
                                             text: '15000 грн ₴',
-                                            callback_data: '1',
+                                            url: 'https://t.me/verbovyi_volodymyr',
                                         }
                                     ],
                                 ],
