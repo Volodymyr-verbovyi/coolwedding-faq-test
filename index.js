@@ -33,7 +33,7 @@ try {
 
         switch (msg.text) {
             case '/start':
-                await bot.sendMessage(chatId, 'Set language', {
+                await bot.sendMessage(chatId, 'Оберіть, будь ласка яка мова вам зручніша', {
                     reply_markup: {
                         resize_keyboard: true,
                         keyboard: keyboard.lang,
@@ -50,7 +50,7 @@ try {
                     reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
                 });
                 break;
-            case kb.homeUA.price:
+            case kb.homeRU.price:
                 // language=HTML
                 await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн ₴</strong> до <b>15000 грн ₴</b> в зависимости от выбраного пакета👇🏽`,
                     {
@@ -60,17 +60,41 @@ try {
                         }, parse_mode: 'HTML',
                     });
                 break;
-            case kb.home.detail:
+            case kb.homeUA.price:
+                // language=HTML
+                await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн ₴</strong> до <b>15000 грн ₴</b> в зависимости от выбраного пакета👇🏽`,
+                    {
+                        reply_markup: {
+                            resize_keyboard: true,
+                            keyboard: keyboard.home3UA
+                        }, parse_mode: 'HTML',
+                    });
+                break;
+            case kb.homeRU.detail:
                 await bot.sendMessage(chatId, `Съемка проходит на разных локациях, по вашему выбору. Возможно у вас есть ценные для вас места, я думаю там также возможно провести съёмку.`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
-            case kb.home.weddingSite:
+            case kb.homeUA.detail:
+                await bot.sendMessage(chatId, `Съемка проходит на разных локациях, по вашему выбору. Возможно у вас есть ценные для вас места, я думаю там также возможно провести съёмку.`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
+                    });
+                break;
+            case kb.homeRU.weddingSite:
                 // language=HTML
                 await bot.sendMessage(chatId, `<b>Свадебный сайт:</b>\nЭто онлайн приглашение на свадьбу. Онлайн приглашение, размещенное на сайте, это одновременно и Ваша уникальная история и созданное лично Вами обращение к гостям. Возможность быстро отправить и проинформировать гостей о деталях мероприятия, каких либо изменений или дополнений. Приглашение всегда доступно по ссылке которую вы отправите, одинаково красиво выглядит в компьютере или телефоне. Примеры можете псмотреть как раз внизу 👇🏽`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home5},
+                        parse_mode: 'HTML',
+                    });
+                break;
+            case kb.homeUA.weddingSite:
+                // language=HTML
+                await bot.sendMessage(chatId, `<b>Свадебный сайт:</b>\nЭто онлайн приглашение на свадьбу. Онлайн приглашение, размещенное на сайте, это одновременно и Ваша уникальная история и созданное лично Вами обращение к гостям. Возможность быстро отправить и проинформировать гостей о деталях мероприятия, каких либо изменений или дополнений. Приглашение всегда доступно по ссылке которую вы отправите, одинаково красиво выглядит в компьютере или телефоне. Примеры можете псмотреть как раз внизу 👇🏽`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home5UA},
                         parse_mode: 'HTML',
                     });
                 break;
@@ -80,10 +104,22 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
+            case kb.home2UA.reservation:
+                await bot.sendMessage(chatId, `Предоплата нужна для бронирования даты, и составляет 2000 грн ₴`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
+                    });
+                break;
             case kb.home2.pay:
                 await bot.sendMessage(chatId, `Так как для бронирования даты, берем задаток 2000 грн ₴, оставшаяся сума в день свадьбы`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                    });
+                break;
+            case kb.home2UA.pay:
+                await bot.sendMessage(chatId, `Так как для бронирования даты, берем задаток 2000 грн ₴, оставшаяся сума в день свадьбы`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
             case kb.home2.deadlines:
@@ -92,10 +128,22 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
+            case kb.home2UA.deadlines:
+                await bot.sendMessage(chatId, `Процесс сложный и творческий 🙏, по времени стараемся от 2х недель, но бывает и 3 месяца☺️. Поверьте, результат того стоит 🔥`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
+                    });
+                break;
             case kb.home2.contract:
                 await bot.sendMessage(chatId, `Если у вас есть пожелание, можем подписать с вами договор`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                    });
+                break;
+            case kb.home2UA.contract:
+                await bot.sendMessage(chatId, `Если у вас есть пожелание, можем подписать с вами договор`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
             case kb.home2.twoCamera:
@@ -104,16 +152,34 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
+            case kb.home2UA.twoCamera:
+                await bot.sendMessage(chatId, `Съемка происходит двумя операторами, таким образом позволяет снять разные планы одного события.`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
+                    });
+                break;
             case kb.home2.equipment:
                 await bot.sendMessage(chatId, `Снимаем на фотоапараты. Также по возможности используем систему стабилизации. Звук на банкете и выездной церемонии записываем на звуковой рекордер.`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
                     });
                 break;
+            case kb.home2UA.equipment:
+                await bot.sendMessage(chatId, `Снимаем на фотоапараты. Также по возможности используем систему стабилизации. Звук на банкете и выездной церемонии записываем на звуковой рекордер.`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
+                    });
+                break;
             case kb.home2.material:
                 await bot.sendMessage(chatId, `Исходный материал по желанию можем отдать, как онлайн ссылку с нашего файлообменника, так и на вашем жестком диске. В среднем обьем зависит от насыщенности событий и составляет 200-300 гб.`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                    });
+                break;
+            case kb.home2UA.material:
+                await bot.sendMessage(chatId, `Исходный материал по желанию можем отдать, как онлайн ссылку с нашего файлообменника, так и на вашем жестком диске. В среднем обьем зависит от насыщенности событий и составляет 200-300 гб.`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
             case kb.home5.var1:
@@ -133,6 +199,22 @@ try {
                         }, keyboard: keyboard.home5
                     });
                 break;
+            case kb.home5UA.var1:
+                await bot.sendPhoto(chatId, './pic/template_v1.jpg',
+                    {
+                        reply_markup: {
+                            resize_keyboard: true,
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: 'Версия на сайте',
+                                        url: 'https://coolwedding.studio/templates/v1/',
+                                    }
+                                ]
+                            ],
+                        }, keyboard: keyboard.home5UA
+                    });
+                break;
             case kb.home5.var2:
                 await bot.sendPhoto(chatId, './pic/template_v2.jpg',
                     {
@@ -149,6 +231,22 @@ try {
                         }, keyboard: keyboard.home5
                     });
                 break;
+            case kb.home5UA.var2:
+                await bot.sendPhoto(chatId, './pic/template_v2.jpg',
+                    {
+                        reply_markup: {
+                            resize_keyboard: true,
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: 'Версия на сайте',
+                                        url: 'https://coolwedding.studio/templates/v3/',
+                                    }
+                                ]
+                            ],
+                        }, keyboard: keyboard.home5UA
+                    });
+                break;
             case kb.home5.var3:
                 await bot.sendPhoto(chatId, './pic/template_v3.jpg',
                     {
@@ -163,6 +261,22 @@ try {
                                 ]
                             ],
                         }, keyboard: keyboard.home5
+                    });
+                break;
+            case kb.home5UA.var3:
+                await bot.sendPhoto(chatId, './pic/template_v3.jpg',
+                    {
+                        reply_markup: {
+                            resize_keyboard: true,
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: 'Версия на сайте',
+                                        url: 'https://coolwedding.studio/templates/v2/',
+                                    }
+                                ]
+                            ],
+                        }, keyboard: keyboard.home5UA
                     });
                 break;
             case kb.home3.hours8:
@@ -189,16 +303,40 @@ try {
                             }, parse_mode: 'HTML', keyboard: keyboard.home3
                     });
                 break;
+            case kb.home3UA.hours8:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 8 часов:</strong>
+                        2 оператора
+                        Свадебный клип
+                        Свадебный сайт
+                        Онлайн галерея
+                        Исходный материал
+                        Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '10000 грн ₴',
+                                            url: 'https://t.me/verbovyi_volodymyr',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3UA
+                    });
+                break;
             case kb.home3.hours10:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
-            2 оператора
-            Свадебный клип
-            Свадебный сайт
-            Онлайн галерея
-            <b>Свадебный фильм</b>
-            Исходный материал   
-            Предварительная встреча`,
+                        2 оператора
+                        Свадебный клип
+                        Свадебный сайт
+                        Онлайн галерея
+                        <b>Свадебный фильм</b>
+                        Исходный материал
+                        Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -214,7 +352,7 @@ try {
                             }, parse_mode: 'HTML', keyboard: keyboard.home3
                     });
                 break;
-            case kb.home3.hours12:
+            case kb.home3UA.hours12:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 12 часов:</strong>
             2 оператора
@@ -236,7 +374,7 @@ try {
                                         }
                                     ],
                                 ],
-                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3UA
                     });
                 break;
             case kb.back:
@@ -251,9 +389,14 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
                     });
                 break;
-
+            case kb.contactUA:
+                await bot.sendMessage(chatId, `З задоволенням відповім по телефону +380633592121, на залишився питання. Дзвоніть, або пишіть.💛`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                    });
+                break;
             default:
-                await bot.sendMessage(chatId, `${msg.from.first_name}, оу, полегше, давай спробуемо ще раз выбирайте вариант ниже 👇🏽`)
+                await bot.sendMessage(chatId, `${msg.from.first_name}, оу, полегше, давай спробуемо ще раз выбирайте вариант нижче 👇🏽`)
         }
     });
 
