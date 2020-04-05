@@ -33,7 +33,7 @@ try {
 
         switch (msg.text) {
             case '/start':
-                await bot.sendMessage(chatId, 'Оберіть, будь ласка яка мова вам зручніша', {
+                await bot.sendMessage(chatId, 'Оберіть, будь ласка яка мова вам зручніша🙌🏼', {
                     reply_markup: {
                         resize_keyboard: true,
                         keyboard: keyboard.lang,
