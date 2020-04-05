@@ -46,13 +46,13 @@ try {
                 });
                 break;
             case kb.lang.RU:
-                await bot.sendMessage(chatId, `${answers.hello}${msg.from.first_name} !`, {
+                await bot.sendMessage(chatId, `${answers.helloRU}${msg.from.first_name} !`, {
                     reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU}
                 });
                 break;
             case kb.homeRU.price:
                 // language=HTML
-                await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн ₴</strong> до <b>15000 грн ₴</b> в зависимости от выбраного пакета👇🏽`,
+                await bot.sendMessage(chatId,`${answers.priceRU}`,
                     {
                         reply_markup: {
                             resize_keyboard: true,
@@ -306,12 +306,12 @@ try {
             case kb.home3UA.hours8:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 8 часов:</strong>
-                        2 оператора
-                        Свадебный клип
-                        Свадебный сайт
-                        Онлайн галерея
-                        Исходный материал
-                        Предварительная встреча`,
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            Исходный материал
+            Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -327,16 +327,41 @@ try {
                             }, parse_mode: 'HTML', keyboard: keyboard.home3UA
                     });
                 break;
+            case kb.home3UA.hours10:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал
+            Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '13000 грн ₴',
+                                            url: 'https://t.me/verbovyi_volodymyr',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3UA
+                    });
+                break;
             case kb.home3RU.hours10:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
-                        2 оператора
-                        Свадебный клип
-                        Свадебный сайт
-                        Онлайн галерея
-                        <b>Свадебный фильм</b>
-                        Исходный материал
-                        Предварительная встреча`,
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал
+            Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -350,6 +375,31 @@ try {
                                     ],
                                 ],
                             }, parse_mode: 'HTML', keyboard: keyboard.home3RU
+                    });
+                break;
+            case kb.home3RU.hours12:
+                // language=HTML
+                await bot.sendMessage(chatId, `      <strong>Съёмка 12 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал   
+            Предварительная встреча`,
+                    {
+                        reply_markup:
+                            {
+                                resize_keyboard: true,
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: '15000 грн ₴',
+                                            url: 'https://t.me/verbovyi_volodymyr',
+                                        }
+                                    ],
+                                ],
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3UA
                     });
                 break;
             case kb.home3UA.hours12:
@@ -377,22 +427,28 @@ try {
                             }, parse_mode: 'HTML', keyboard: keyboard.home3UA
                     });
                 break;
-            case kb.back:
+            case kb.backRU:
                 await bot.sendMessage(chatId, `Выбирайте вариант ниже 👇🏽`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA}
+                    });
+                break;
+            case kb.backUA:
+                await bot.sendMessage(chatId, `Выбирайте вариант ниже 👇🏽`,
+                    {
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA}
                     });
                 break;
             case kb.contact:
                 await bot.sendMessage(chatId, `С удовольствием отвечу по телефону +380633592121, на оставшиеся вопросы. Звоните, или пишите.💛`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU}
                     });
                 break;
             case kb.contactUA:
-                await bot.sendMessage(chatId, `З задоволенням відповім по телефону +380633592121, на залишився питання. Дзвоніть, або пишіть.💛`,
+                await bot.sendMessage(chatId, `З задоволенням відповім за телефоном +380633592121, на залишившись питання. Дзвоніть, або пишіть.💛`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA}
                     });
                 break;
             default:
