@@ -47,7 +47,7 @@ try {
                 break;
             case kb.lang.RU:
                 await bot.sendMessage(chatId, `${answers.hello}${msg.from.first_name} !`, {
-                    reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                    reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU}
                 });
                 break;
             case kb.homeRU.price:
@@ -56,7 +56,7 @@ try {
                     {
                         reply_markup: {
                             resize_keyboard: true,
-                            keyboard: keyboard.home3
+                            keyboard: keyboard.home3RU
                         }, parse_mode: 'HTML',
                     });
                 break;
@@ -73,7 +73,7 @@ try {
             case kb.homeRU.detail:
                 await bot.sendMessage(chatId, `Съемка проходит на разных локациях, по вашему выбору. Возможно у вас есть ценные для вас места, я думаю там также возможно провести съёмку.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.homeUA.detail:
@@ -86,7 +86,7 @@ try {
                 // language=HTML
                 await bot.sendMessage(chatId, `<b>Свадебный сайт:</b>\nЭто онлайн приглашение на свадьбу. Онлайн приглашение, размещенное на сайте, это одновременно и Ваша уникальная история и созданное лично Вами обращение к гостям. Возможность быстро отправить и проинформировать гостей о деталях мероприятия, каких либо изменений или дополнений. Приглашение всегда доступно по ссылке которую вы отправите, одинаково красиво выглядит в компьютере или телефоне. Примеры можете псмотреть как раз внизу 👇🏽`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home5},
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home5RU},
                         parse_mode: 'HTML',
                     });
                 break;
@@ -98,10 +98,10 @@ try {
                         parse_mode: 'HTML',
                     });
                 break;
-            case kb.home2.reservation:
+            case kb.home2RU.reservation:
                 await bot.sendMessage(chatId, `Предоплата нужна для бронирования даты, и составляет 2000 грн ₴`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.reservation:
@@ -110,10 +110,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.pay:
+            case kb.home2RU.pay:
                 await bot.sendMessage(chatId, `Так как для бронирования даты, берем задаток 2000 грн ₴, оставшаяся сума в день свадьбы`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.pay:
@@ -122,10 +122,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.deadlines:
+            case kb.home2RU.deadlines:
                 await bot.sendMessage(chatId, `Процесс сложный и творческий 🙏, по времени стараемся от 2х недель, но бывает и 3 месяца☺️. Поверьте, результат того стоит 🔥`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.deadlines:
@@ -134,10 +134,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.contract:
+            case kb.home2RU.contract:
                 await bot.sendMessage(chatId, `Если у вас есть пожелание, можем подписать с вами договор`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.contract:
@@ -146,10 +146,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.twoCamera:
+            case kb.home2RU.twoCamera:
                 await bot.sendMessage(chatId, `Съемка происходит двумя операторами, таким образом позволяет снять разные планы одного события.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.twoCamera:
@@ -158,10 +158,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.equipment:
+            case kb.home2RU.equipment:
                 await bot.sendMessage(chatId, `Снимаем на фотоапараты. Также по возможности используем систему стабилизации. Звук на банкете и выездной церемонии записываем на звуковой рекордер.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.equipment:
@@ -170,10 +170,10 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home2.material:
+            case kb.home2RU.material:
                 await bot.sendMessage(chatId, `Исходный материал по желанию можем отдать, как онлайн ссылку с нашего файлообменника, так и на вашем жестком диске. В среднем обьем зависит от насыщенности событий и составляет 200-300 гб.`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2}
+                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU}
                     });
                 break;
             case kb.home2UA.material:
@@ -182,7 +182,7 @@ try {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA}
                     });
                 break;
-            case kb.home5.var1:
+            case kb.home5RU.var1:
                 const fileId = './pic/template_v1.jpg';
                 await bot.sendPhoto(chatId, fileId,
                     {
@@ -196,7 +196,7 @@ try {
                                     }
                                 ]
                             ],
-                        }, keyboard: keyboard.home5
+                        }, keyboard: keyboard.home5RU
                     });
                 break;
             case kb.home5UA.var1:
@@ -215,7 +215,7 @@ try {
                         }, keyboard: keyboard.home5UA
                     });
                 break;
-            case kb.home5.var2:
+            case kb.home5RU.var2:
                 await bot.sendPhoto(chatId, './pic/template_v2.jpg',
                     {
                         reply_markup: {
@@ -228,7 +228,7 @@ try {
                                     }
                                 ]
                             ],
-                        }, keyboard: keyboard.home5
+                        }, keyboard: keyboard.home5RU
                     });
                 break;
             case kb.home5UA.var2:
@@ -247,7 +247,7 @@ try {
                         }, keyboard: keyboard.home5UA
                     });
                 break;
-            case kb.home5.var3:
+            case kb.home5RU.var3:
                 await bot.sendPhoto(chatId, './pic/template_v3.jpg',
                     {
                         reply_markup: {
@@ -260,7 +260,7 @@ try {
                                     }
                                 ]
                             ],
-                        }, keyboard: keyboard.home5
+                        }, keyboard: keyboard.home5RU
                     });
                 break;
             case kb.home5UA.var3:
@@ -279,7 +279,7 @@ try {
                         }, keyboard: keyboard.home5UA
                     });
                 break;
-            case kb.home3.hours8:
+            case kb.home3RU.hours8:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 8 часов:</strong>
             2 оператора
@@ -300,7 +300,7 @@ try {
                                         }
                                     ],
                                 ],
-                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3RU
                     });
                 break;
             case kb.home3UA.hours8:
@@ -327,7 +327,7 @@ try {
                             }, parse_mode: 'HTML', keyboard: keyboard.home3UA
                     });
                 break;
-            case kb.home3.hours10:
+            case kb.home3RU.hours10:
                 // language=HTML
                 await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
                         2 оператора
@@ -349,7 +349,7 @@ try {
                                         }
                                     ],
                                 ],
-                            }, parse_mode: 'HTML', keyboard: keyboard.home3
+                            }, parse_mode: 'HTML', keyboard: keyboard.home3RU
                     });
                 break;
             case kb.home3UA.hours12:

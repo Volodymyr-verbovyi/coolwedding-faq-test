@@ -14,23 +14,23 @@ module.exports = {
         [kb.homeUA.detail, kb.homeUA.weddingSite],
         [kb.contactUA],
     ],
-    home2: [
-        [kb.home2.deadlines, kb.home2.pay],
-        [kb.home2.reservation, kb.home2.contract],
-        [kb.home2.twoCamera, kb.home2.material],
-        [kb.home2.equipment, kb.contact],
+    home2RU: [
+        [kb.home2RU.deadlines, kb.home2RU.pay],
+        [kb.home2RU.reservation, kb.home2RU.contract],
+        [kb.home2RU.twoCamera, kb.home2RU.material],
+        [kb.home2RU.equipment, kb.contact],
         [kb.backUA],
     ],
     home2UA: [
         [kb.home2UA.deadlines, kb.home2UA.pay],
         [kb.home2UA.reservation, kb.home2UA.contract],
         [kb.home2UA.twoCamera, kb.home2UA.material],
-        [kb.home2.equipment, kb.contact],
+        [kb.home2RU.equipment, kb.contact],
         [kb.back],
     ],
-    home3: [
-        [kb.home3.hours8, kb.home3.hours10],
-        [kb.home3.hours12, kb.contact],
+    home3RU: [
+        [kb.home3RU.hours8, kb.home3RU.hours10],
+        [kb.home3RU.hours12, kb.contact],
         [kb.back],
     ],
     home3UA: [
@@ -48,8 +48,8 @@ module.exports = {
         [kb.home4.material],
         [kb.backUA],
     ],
-    home5: [
-        [kb.home5.var1, kb.home5.var2, kb.home5.var3],
+    home5RU: [
+        [kb.home5RU.var1, kb.home5RU.var2, kb.home5RU.var3],
         [kb.back],
     ],
     home5UA: [
