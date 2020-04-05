@@ -4,6 +4,7 @@ const https = require('https');
 const helper = require('./helper');
 const kb = require('./keyboard-buttons');
 const keyboard = require('./keyboard');
+const answers = require('./answers');
 
 const TOKEN = '996463033:AAEX502RCoUE3pi8M0BSUyCijBW7moLSm-U';
 
@@ -27,19 +28,29 @@ setInterval(function () {
 
 
 try {
-    bot.onText(/\/start/, async msg => {
-
-        const text = `Привет👋🏽, выбирайте вариант ниже 👇🏽, ${msg.from.first_name}`;
-        await bot.sendMessage(helper.getChatId(msg), text, {
-            reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
-        })
-    });
-
     bot.on('message', async msg => {
         const chatId = helper.getChatId(msg);
 
         switch (msg.text) {
-            case kb.home.price:
+            case '/start':
+                await bot.sendMessage(chatId, 'Set language', {
+                    reply_markup: {
+                        resize_keyboard: true,
+                        keyboard: keyboard.lang,
+                    }
+                });
+                break;
+            case kb.lang.UA:
+                await bot.sendMessage(chatId, `${answers.helloUA} ${msg.from.first_name} !`, {
+                    reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA}
+                });
+                break;
+            case kb.lang.RU:
+                await bot.sendMessage(chatId, `${answers.hello}${msg.from.first_name} !`, {
+                    reply_markup: {resize_keyboard: true, keyboard: keyboard.home}
+                });
+                break;
+            case kb.homeUA.price:
                 // language=HTML
                 await bot.sendMessage(chatId, `Стоимость от <strong>10000 грн ₴</strong> до <b>15000 грн ₴</b> в зависимости от выбраного пакета👇🏽`,
                     {
@@ -251,16 +262,12 @@ try {
 }
 
 
-
-
-
 /*case kb.home3.hours10:
                 await bot.sendMessage(chatId, `Съёмка 10 часов:\n 2 оператора\n Свадебный клип\n Свадебный сайт\n Онлайн галерея\n Свадебный фильм\n Исходный материал\n Предварительная встреча\n`,
                     {
                         reply_markup: {resize_keyboard: true, keyboard: keyboard.home3}
                     });
                 break;*/
-
 
 
 /*case kb.home2.pak:

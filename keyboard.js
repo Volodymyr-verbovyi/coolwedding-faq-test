@@ -1,10 +1,18 @@
 const kb = require('./keyboard-buttons');
 
 module.exports = {
+    lang: [
+      [kb.lang.RU, kb.lang.UA]
+    ],
     home: [
         [kb.home.price],
         [kb.home.detail,kb.home.weddingSite],
         [kb.contact]
+    ],
+    homeUA: [
+        [kb.homeUA.price],
+        [kb.homeUA.detail,kb.homeUA.weddingSite],
+        [kb.contactUA]
     ],
     home2: [
         [kb.home2.deadlines,kb.home2.pay],
