@@ -1,7 +1,7 @@
 module.exports = {
     lang: {
-        UA: 'UA',
-        RU: 'RU',
+        UA: 'UA🇺🇦',
+        RU: '🇷🇺RU',
     },
     homeRU: {
         price: 'Стоимость☺️',
@@ -38,21 +38,20 @@ module.exports = {
         reservation: 'Потрібен завдаток?',
         twoCamera: '🎥Ви знімаєте у дві камери?',
         material: 'Віддаєте вихідний матеріал?',
-        pay: 'Вартість💳',
+        pay: 'Деталі оплати💳',
     },
     home3UA: {
         hours8: '8 годин',
         hours10: '10 годин',
         hours12: '12 годин',
-        hours: '......',
     },
     home4UA: {
         var1UA: 'Біленький',
-        var2UA: 'Pink',
+        var2UA: 'Рожевий',
         var3UA: 'Обручка💍',
     },
-    backRU: '↩️Назад',
-    backUA: 'Назад↩️',
+    backRU: '💫На главную',
+    backUA: 'На головну💫️',
     contactRU: '📞Контакты',
     contactRU_3: '✍🏽Написать',
     contactUA: '📞Контакти',

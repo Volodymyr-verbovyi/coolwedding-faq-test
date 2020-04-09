@@ -271,7 +271,13 @@ try {
                 break;
             case kb.home3RU.hours8:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours8RU}`,
+                await bot.sendMessage(chatId, `      <strong>Съёмка 8 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            Исходный материал
+            Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -289,7 +295,14 @@ try {
                 break;
             case kb.home3UA.hours8:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours8UA}`,
+                await bot.sendMessage(chatId, `      <strong>Зйомка 8 годин:</strong>
+            2 оператора
+            Весільний кліп
+            Весільний сайт
+            Онлайн галерея
+            <b>Весільний фільм</b>
+            Початковий матеріал
+            Попередня зустріч`,
                     {
                         reply_markup:
                             {
@@ -307,7 +320,14 @@ try {
                 break;
             case kb.home3UA.hours10:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours10UA}`,
+                await bot.sendMessage(chatId, `      <strong>Зйомка 10 годин:</strong>
+            2 оператора
+            Весільний кліп
+            Весільний сайт
+            <b>Весільний фільм</b>
+            Онлайн галерея
+            Початковий матеріал
+            Попередня зустріч`,
                     {
                         reply_markup:
                             {
@@ -325,7 +345,14 @@ try {
                 break;
             case kb.home3RU.hours10:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours10RU}`,
+                await bot.sendMessage(chatId, `      <strong>Съёмка 10 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал
+            Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -343,7 +370,14 @@ try {
                 break;
             case kb.home3RU.hours12:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours12RU}`,
+                await bot.sendMessage(chatId, `      <strong>Съёмка 12 часов:</strong>
+            2 оператора
+            Свадебный клип
+            Свадебный сайт
+            Онлайн галерея
+            <b>Свадебный фильм</b>
+            Исходный материал
+            Предварительная встреча`,
                     {
                         reply_markup:
                             {
@@ -361,7 +395,14 @@ try {
                 break;
             case kb.home3UA.hours12:
                 // language=HTML
-                await bot.sendMessage(chatId, `${answers.hours12UA}`,
+                await bot.sendMessage(chatId, `      <strong>Зйомка 12 годин:</strong>
+            2 оператора
+            Весільний кліп
+            Весільний сайт
+            <b>Весільний фільм</b>
+            Онлайн галерея
+            Початковий матеріал
+            Попередня зустріч`,
                     {
                         reply_markup:
                             {
