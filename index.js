@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const http = require('http');
 const https = require('https');
+const fs = require('fs');
 const helper = require('./helper');
 const kb = require('./keyboard-buttons');
 const keyboard = require('./keyboard');
@@ -19,6 +20,8 @@ const bot = new TelegramBot(TOKEN, {
     },
 });
 
+const user = [];
+
 http.createServer().listen(process.env.PORT || 4000).on('request', function (req, res) {
     res.end('');
 });
@@ -29,9 +32,36 @@ setInterval(function () {
 
 try {
     bot.on('message', async msg => {
+        console.log('msg: ', msg);
         const chatId = helper.getChatId(msg);
 
+
+
+
+
+        if (!user.some(item => item.user === msg.from.username)) {
+            user.push({user: msg.from.username, userId: msg.from.id, date: new Date(Date.now()).toString()});
+            console.log(user);
+            fs.writeFile('./test.json', JSON.stringify(user), (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+
+        let users = '';
+
+        fs.readFile('./test.json', async (err, data) => {
+            err ? console.error(err) : users =  await JSON.stringify(data);
+            // err ? console.error(err) : console.log(JSON.stringify(data));
+        });
+
+
         switch (msg.text) {
+            case 'q':
+                await bot.sendMessage(chatId, users);
+                break;
             case '/start':
                 await bot.sendMessage(chatId, 'Оберіть, будь ласка яка мова вам зручніша🙌🏼', {
                     reply_markup: {
