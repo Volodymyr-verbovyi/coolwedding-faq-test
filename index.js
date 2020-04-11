@@ -1,13 +1,13 @@
 const TelegramBot = require('node-telegram-bot-api');
 const http = require('http');
 const https = require('https');
+const rp = require('request-promise');
 const helper = require('./helper');
 const kb = require('./keyboard-buttons');
 const keyboard = require('./keyboard');
 const answers = require('./answers');
 
 const TOKEN = '996463033:AAEX502RCoUE3pi8M0BSUyCijBW7moLSm-U';
-
 
 const bot = new TelegramBot(TOKEN, {
     polling: {
@@ -19,6 +19,8 @@ const bot = new TelegramBot(TOKEN, {
     },
 });
 
+const user = [];
+
 http.createServer().listen(process.env.PORT || 4000).on('request', function (req, res) {
     res.end('');
 });
@@ -26,10 +28,90 @@ setInterval(function () {
     https.get('https://test-cool1-bot.herokuapp.com');
 }, 300000);
 
+const month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'];
 
 try {
     bot.on('message', async msg => {
         const chatId = helper.getChatId(msg);
+
+        const config = { 'Content-Type': 'application/json' };
+        config.body = JSON.stringify({
+            user: msg.from.username,
+            userId: msg.from.id,
+        });
+
+        const config2 = { 'Content-Type': 'application/json' };
+        config2.body = JSON.stringify({
+            user: msg.from.username,
+            wmak: [
+                {
+                    text: msg.text,
+                    date: new Date(Date.now()).toString(),
+                },
+            ],
+        });
+
+        const res = await rp.get('https://coolweddingfaq.firebaseio.com/statUnique.json');
+        if (res === 'null') {
+            await rp.post('https://coolweddingfaq.firebaseio.com/statUnique.json', config);
+        } else {
+            const parseData = [...new Set(Object.values(JSON.parse(res)).map(item => item.userId))];
+            if (!parseData.some(item => item.toString() === msg.from.id.toString())) {
+                await rp.post('https://coolweddingfaq.firebaseio.com/statUnique.json', config);
+            }
+        }
+
+        const date = new Date();
+        const tableName = `${date.getFullYear()}${month[date.getMonth()]}`;
+
+        const resUniqueMonth = await rp.get(
+            `https://coolweddingfaq.firebaseio.com/${tableName}.json`);
+        if (resUniqueMonth === 'null') {
+            await rp.post(`https://coolweddingfaq.firebaseio.com/${tableName}.json`, config2);
+        } else {
+            const users = [
+                ...new Set(Object.values(JSON.parse(resUniqueMonth)).map(item => item.user))];
+
+            if (!users.some(item => item === msg.from.username)) {
+                await rp.post(`https://coolweddingfaq.firebaseio.com/${tableName}.json`, config2);
+            } else {
+                const currentUser = Object.values(JSON.parse(resUniqueMonth)).
+                    find(item => item.user === msg.from.username);
+
+                currentUser.wmak.push({
+                    text: msg.text,
+                    date: new Date(Date.now()).toString(),
+                });
+
+                const curUser = Object.keys(JSON.parse(resUniqueMonth)).map(key => ({
+                    name: JSON.parse(resUniqueMonth)[key].user,
+                    id: key,
+                }));
+
+                const idUser = curUser.find(item => item.name === msg.from.username).id;
+
+                const config3 = { 'Content-Type': 'application/json' };
+                config3.body = JSON.stringify({
+                    user: msg.from.username,
+                    wmak: currentUser.wmak,
+                });
+
+                await rp.put(`https://coolweddingfaq.firebaseio.com/${tableName}/${idUser}.json`,
+                    config3);
+            }
+        }
 
         switch (msg.text) {
             case '/start':
@@ -42,12 +124,12 @@ try {
                 break;
             case kb.lang.UA:
                 await bot.sendMessage(chatId, `${answers.helloUA} ${msg.from.first_name} !`, {
-                    reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA},
+                    reply_markup: { resize_keyboard: true, keyboard: keyboard.homeUA },
                 });
                 break;
             case kb.lang.RU:
                 await bot.sendMessage(chatId, `${answers.helloRU}${msg.from.first_name} !`, {
-                    reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU},
+                    reply_markup: { resize_keyboard: true, keyboard: keyboard.homeRU },
                 });
                 break;
             case kb.homeRU.price:
@@ -73,20 +155,20 @@ try {
             case kb.homeRU.detail:
                 await bot.sendMessage(chatId, `${answers.detailRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.homeUA.detail:
                 await bot.sendMessage(chatId, `${answers.detailUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.homeRU.weddingSite:
                 // language=HTML
                 await bot.sendMessage(chatId, `${answers.weddingSiteRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home4RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home4RU },
                         parse_mode: 'HTML',
                     });
                 break;
@@ -94,80 +176,80 @@ try {
                 // language=HTML
                 await bot.sendMessage(chatId, `${answers.weddingSiteUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home4UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home4UA },
                         parse_mode: 'HTML',
                     });
                 break;
             case kb.home2RU.reservation:
                 await bot.sendMessage(chatId, `${answers.reservationRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.reservation:
                 await bot.sendMessage(chatId, `${answers.reservationUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home2RU.pay:
                 await bot.sendMessage(chatId, `${answers.payRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.pay:
                 await bot.sendMessage(chatId, `${answers.payUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home2RU.deadlines:
                 await bot.sendMessage(chatId, `${answers.deadlinesRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.deadlines:
                 await bot.sendMessage(chatId, `${answers.deadlinesUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home2RU.contract:
                 await bot.sendMessage(chatId, `${answers.contractRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.contract:
                 await bot.sendMessage(chatId, `${answers.contractUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home2RU.twoCamera:
                 await bot.sendMessage(chatId, `${answers.twoCameraRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.twoCamera:
                 await bot.sendMessage(chatId, `${answers.twoCameraUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home2RU.material:
                 await bot.sendMessage(chatId, `${answers.materialRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2RU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2RU },
                     });
                 break;
             case kb.home2UA.material:
                 await bot.sendMessage(chatId, `${answers.materialUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.home2UA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.home2UA },
                     });
                 break;
             case kb.home4RU.var1:
@@ -421,19 +503,19 @@ try {
             case kb.backRU:
                 await bot.sendMessage(chatId, `${answers.backRUanswer}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeRU },
                     });
                 break;
             case kb.backUA:
                 await bot.sendMessage(chatId, `${answers.backUAanswer}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeUA },
                     });
                 break;
             case kb.contactRU:
                 await bot.sendMessage(chatId, `${answers.contactRU}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeRU},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeRU },
                     });
                 break;
             case kb.contactRU_3:
@@ -456,7 +538,7 @@ try {
             case kb.contactUA:
                 await bot.sendMessage(chatId, `${answers.contactUA}`,
                     {
-                        reply_markup: {resize_keyboard: true, keyboard: keyboard.homeUA},
+                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeUA },
                     });
                 break;
             case kb.contactUA_3:
