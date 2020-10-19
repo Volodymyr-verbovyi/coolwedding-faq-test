@@ -367,7 +367,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '10000 грн ₴',
+                                            text: '14000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
@@ -382,7 +382,6 @@ try {
             Весільний кліп
             Весільний сайт
             Онлайн галерея
-            <b>Весільний фільм</b>
             Початковий матеріал
             Попередня зустріч`,
                     {
@@ -392,7 +391,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '10000 грн ₴',
+                                            text: '14000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
@@ -417,7 +416,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '13000 грн ₴',
+                                            text: '17000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
@@ -442,7 +441,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '13000 грн ₴',
+                                            text: '17000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
@@ -467,7 +466,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '15000 грн ₴',
+                                            text: '19000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
@@ -492,7 +491,7 @@ try {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: '15000 грн ₴',
+                                            text: '19000 грн ₴',
                                             url: 'https://t.me/verbovyi_volodymyr',
                                         },
                                     ],
