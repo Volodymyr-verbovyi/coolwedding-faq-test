@@ -19,7 +19,7 @@ const bot = new TelegramBot(TOKEN, {
     },
 });
 
-const user = [];
+//const user = [];
 
 http.createServer().listen(process.env.PORT || 4000).on('request', function (req, res) {
     res.end('');
@@ -512,9 +512,18 @@ try {
                     });
                 break;
             case kb.contactRU:
-                await bot.sendMessage(chatId, `${answers.contactRU}`,
+                await bot.sendMessage(chatId, `${answers.contactRU}👇🏽`,
                     {
-                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeRU },
+                        reply_markup: { resize_keyboard: true,
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: 'В Telegram',
+                                        url: 'https://t.me/verbovyi_volodymyr',
+                                    },
+                                ],
+                            ],
+                             },parse_mode: 'HTML', keyboard: keyboard.homeRU
                     });
                 break;
             case kb.contactRU_3:
@@ -535,17 +544,24 @@ try {
                     });
                 break;
             case kb.contactUA:
-                await bot.sendMessage(chatId, `${answers.contactUA}`,
+                await bot.sendMessage(chatId, `${answers.contactUA}👇🏽`,
                     {
-                        reply_markup: { resize_keyboard: true, keyboard: keyboard.homeUA },
+                        reply_markup: { resize_keyboard: true,
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: 'В Telegram',
+                                        url: 'https://t.me/verbovyi_volodymyr',
+                                    },
+                                ],
+                            ],  },parse_mode: 'HTML', keyboard: keyboard.homeUA
                     });
                 break;
             case kb.contactUA_3:
                 await bot.sendMessage(chatId, `${answers.contactUA}👇🏽`,
                     {
                         reply_markup:
-                            {
-                                resize_keyboard: true,
+                            {resize_keyboard: true,
                                 inline_keyboard: [
                                     [
                                         {
