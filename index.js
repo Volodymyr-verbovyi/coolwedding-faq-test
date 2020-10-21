@@ -7,7 +7,7 @@ const kb = require('./keyboard-buttons');
 const keyboard = require('./keyboard');
 const answers = require('./answers');
 
-const TOKEN = `./token.txt`;
+const TOKEN = `996463033:AAHq1Em2S5dMvhpzLV0tU-7tt05_F4h_-Os`;
 
 const bot = new TelegramBot(TOKEN, {
     polling: {
